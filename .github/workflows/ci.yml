@@ -1,0 +1,26 @@
+name: Verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate local test secrets
+        run: make setup
+      - name: Vet and race tests with PostgreSQL
+        run: make test
+      - name: Start demonstration stack
+        run: make up
+      - name: Smoke through Nginx
+        run: make smoke
+      - name: Container status on failure
+        if: failure()
+        run: docker compose ps -a
+      - name: Clean up
+        if: always()
+        run: docker compose down -v

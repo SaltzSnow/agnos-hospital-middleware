@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1140" viewBox="0 0 1500 1140">
+<rect width="1500" height="1140" fill="white"/>
+<text x="90" y="64.55" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#087F8C">HOSPITAL MIDDLEWARE</text>
+<text x="90" y="128.3" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#142B45">A clear boundary for every hospital.</text>
+<text x="92" y="171.3" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#6A7D8E">Entity relationship diagram  /  PostgreSQL persistence model</text>
+<rect x="90" y="197" width="1320" height="2" rx="0" fill="#D9E3EB" stroke="none"/>
+<rect x="90" y="245" width="480" height="271" rx="10" fill="#FFFFFF" stroke="#D9E3EB"/>
+<rect x="90" y="245" width="480" height="70" rx="0" fill="#142B45" stroke="none"/>
+<text x="112" y="278.05" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#FFFFFF">Hospital</text>
+<text x="112" y="300.7" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#B8CEDC">hospitals  ·  tenant registry</text>
+<rect x="91" y="315" width="478" height="35" rx="0" fill="#F0F5F8" stroke="none"/>
+<text x="106" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">KEY</text>
+<text x="159" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">COLUMN</text>
+<text x="394" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">TYPE</text>
+<text x="483" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">NULLABLE</text>
+<rect x="104" y="357" width="34" height="20" rx="4" fill="#E8EEF4" stroke="none"/>
+<text x="121.0" y="370.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#142B45">PK</text>
+<text x="159" y="371.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#253E55">id</text>
+<text x="394" y="371.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">bigint</text>
+<text x="483" y="371.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<rect x="91" y="384" width="478" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="159" y="405.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">code</text>
+<text x="394" y="405.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="483" y="405.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<text x="159" y="439.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">name</text>
+<text x="394" y="439.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="483" y="439.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<path d="M90 452 L570 452" fill="none" stroke="#D9E3EB"/>
+<text x="108" y="474.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#087F8C">UNIQUE</text>
+<text x="108" y="497.05" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#253E55">code</text>
+<rect x="90" y="625" width="480" height="305" rx="10" fill="#FFFFFF" stroke="#D9E3EB"/>
+<rect x="90" y="625" width="480" height="70" rx="0" fill="#142B45" stroke="none"/>
+<text x="112" y="658.05" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#FFFFFF">Staff</text>
+<text x="112" y="680.7" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#B8CEDC">staff  ·  authenticated users</text>
+<rect x="91" y="695" width="478" height="35" rx="0" fill="#F0F5F8" stroke="none"/>
+<text x="106" y="716.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">KEY</text>
+<text x="159" y="716.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">COLUMN</text>
+<text x="394" y="716.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">TYPE</text>
+<text x="483" y="716.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">NULLABLE</text>
+<rect x="104" y="737" width="34" height="20" rx="4" fill="#E8EEF4" stroke="none"/>
+<text x="121.0" y="750.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#142B45">PK</text>
+<text x="159" y="751.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#253E55">id</text>
+<text x="394" y="751.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">bigint</text>
+<text x="483" y="751.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<rect x="91" y="764" width="478" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<rect x="104" y="771" width="34" height="20" rx="4" fill="#DFF2F3" stroke="none"/>
+<text x="121.0" y="784.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#087F8C">FK</text>
+<text x="159" y="785.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#253E55">hospital_id</text>
+<text x="394" y="785.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">bigint</text>
+<text x="483" y="785.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<text x="159" y="819.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">username</text>
+<text x="394" y="819.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="483" y="819.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<rect x="91" y="832" width="478" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="159" y="853.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">password_hash</text>
+<text x="394" y="853.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="483" y="853.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<path d="M90 866 L570 866" fill="none" stroke="#D9E3EB"/>
+<text x="108" y="888.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#087F8C">UNIQUE</text>
+<text x="108" y="911.05" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#253E55">(hospital_id, username)</text>
+<rect x="860" y="245" width="550" height="679" rx="10" fill="#FFFFFF" stroke="#D9E3EB"/>
+<rect x="860" y="245" width="550" height="70" rx="0" fill="#142B45" stroke="none"/>
+<text x="882" y="278.05" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#FFFFFF">Patient</text>
+<text x="882" y="300.7" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#B8CEDC">patients  ·  hospital-scoped records</text>
+<rect x="861" y="315" width="548" height="35" rx="0" fill="#F0F5F8" stroke="none"/>
+<text x="876" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">KEY</text>
+<text x="929" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">COLUMN</text>
+<text x="1234" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">TYPE</text>
+<text x="1323" y="336.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#6A7D8E">NULLABLE</text>
+<rect x="874" y="357" width="34" height="20" rx="4" fill="#E8EEF4" stroke="none"/>
+<text x="891.0" y="370.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#142B45">PK</text>
+<text x="929" y="371.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#253E55">id</text>
+<text x="1234" y="371.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">bigint</text>
+<text x="1323" y="371.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<rect x="861" y="384" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<rect x="874" y="391" width="34" height="20" rx="4" fill="#DFF2F3" stroke="none"/>
+<text x="891.0" y="404.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#087F8C">FK</text>
+<text x="929" y="405.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#253E55">hospital_id</text>
+<text x="1234" y="405.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">bigint</text>
+<text x="1323" y="405.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<text x="929" y="439.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">patient_hn</text>
+<text x="1234" y="439.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="439.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">No</text>
+<rect x="861" y="452" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="929" y="473.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">first_name_th</text>
+<text x="1234" y="473.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="473.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<text x="929" y="507.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">middle_name_th</text>
+<text x="1234" y="507.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="507.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<rect x="861" y="520" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="929" y="541.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">last_name_th</text>
+<text x="1234" y="541.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="541.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<text x="929" y="575.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">first_name_en</text>
+<text x="1234" y="575.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="575.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<rect x="861" y="588" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="929" y="609.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">middle_name_en</text>
+<text x="1234" y="609.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="609.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<text x="929" y="643.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">last_name_en</text>
+<text x="1234" y="643.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="643.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<rect x="861" y="656" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="929" y="677.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">date_of_birth</text>
+<text x="1234" y="677.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">date</text>
+<text x="1323" y="677.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<text x="929" y="711.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">national_id</text>
+<text x="1234" y="711.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="711.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<rect x="861" y="724" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="929" y="745.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">passport_id</text>
+<text x="1234" y="745.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="745.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<text x="929" y="779.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">phone_number</text>
+<text x="1234" y="779.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="779.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<rect x="861" y="792" width="548" height="34" rx="0" fill="#FAFCFD" stroke="none"/>
+<text x="929" y="813.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">email</text>
+<text x="1234" y="813.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="813.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<text x="929" y="847.9" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">gender</text>
+<text x="1234" y="847.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">text</text>
+<text x="1323" y="847.2" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Yes</text>
+<path d="M860 860 L1410 860" fill="none" stroke="#D9E3EB"/>
+<text x="878" y="882.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#087F8C">UNIQUE</text>
+<text x="878" y="905.05" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#253E55">(hospital_id, patient_hn)</text>
+<path d="M330 516 L330 625" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M322 526 L338 526" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M322 533 L338 533" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M330 625 L321 607" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M330 625 L339 607" fill="none" stroke="#087F8C" stroke-width="2"/>
+<circle cx="330" cy="598" r="5" fill="white" stroke="#087F8C" stroke-width="2"/>
+<text x="440.0" y="552.0999999999999" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#087F8C">1 hospital</text>
+<text x="440.0" y="568.9999999999999" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#087F8C">0..* staff</text>
+<path d="M570 333 L860 333" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M580 325 L580 341" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M587 325 L587 341" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M860 333 L842 324" fill="none" stroke="#087F8C" stroke-width="2"/>
+<path d="M860 333 L842 342" fill="none" stroke="#087F8C" stroke-width="2"/>
+<circle cx="833" cy="333" r="5" fill="white" stroke="#087F8C" stroke-width="2"/>
+<text x="715.0" y="300.55" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#087F8C">1 hospital  →  0..* patients</text>
+<rect x="90" y="960" width="1320" height="104" rx="8" fill="#F0F7F8" stroke="none"/>
+<text x="112" y="989.85" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#087F8C">TENANT ISOLATION</text>
+<text x="112" y="1024.1" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#142B45">Staff access is scoped by staff.hospital_id.</text>
+<text x="735" y="1009.8" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">Patient identifiers may repeat across hospitals.</text>
+<text x="735" y="1028.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#253E55">HN is unique only within its hospital; national_id and passport_id are not unique.</text>
+<text x="90" y="1098.7" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">PK  Primary key     FK  Foreign key     Nullable: Yes = SQL NULL permitted</text>
+<text x="1050" y="1098.7" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#6A7D8E">Source: migrations/001_init.sql</text>
+</svg>

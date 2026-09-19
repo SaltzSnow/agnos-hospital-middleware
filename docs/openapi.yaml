@@ -1,0 +1,661 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Agnos hospital middleware",
+    "version": "1.0.0",
+    "description": "Application JSON contract. POST bodies require application/json, one object, exact field names, no unknown/duplicate keys or trailing JSON; maximum 64 KiB. Nginx returns the JSON error envelope for its configured errors: 404 not_found, 405 method_not_allowed, 413 request_too_large, 429 rate_limited and 502 unavailable. Upstream application statuses are preserved. Validation descriptions state byte limits because OpenAPI string length counts characters."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/staff/create": {
+      "post": {
+        "operationId": "createStaff",
+        "security": [
+          {
+            "RegistrationKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Credentials"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Staff"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, fields, types, media type, size or validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal or storage error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing or invalid registration key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Username already exists within the hospital",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Nginx rejected a body larger than 64 KiB; code request_too_large. Direct application body-limit failure uses 400.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Nginx staff endpoint rate limit exceeded: 10 requests per second per client IP with burst 20; code rate_limited.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/staff/login": {
+      "post": {
+        "operationId": "loginStaff",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Credentials"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, fields, types, media type, size or validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal or storage error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid credentials or unknown hospital",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Nginx rejected a body larger than 64 KiB; code request_too_large. Direct application body-limit failure uses 400.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Nginx staff endpoint rate limit exceeded: 10 requests per second per client IP with burst 20; code rate_limited.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patient/search": {
+      "post": {
+        "operationId": "searchPatients",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, fields, types, media type, size or validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal or storage error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired bearer token, or missing staff",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Invalid, mismatched or unreachable HIS response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "HIS is not configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "HIS timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Nginx rejected a body larger than 64 KiB; code request_too_large. Direct application body-limit failure uses 400.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "description": "Without identifiers, searches locally stored records in the authenticated staff hospital. {} lists local records. With an identifier, performs GET /patient/search/{id} at the configured HIS, validates the queried identifier, upserts by hospital and HN, then applies every filter only to that fetched record. HIS 404 returns an empty 200 even if old local data exists. No stale fallback on failure. Results ordered by internal id; count and page use a repeatable-read snapshot."
+      }
+    },
+    "/healthz": {
+      "get": {
+        "operationId": "health",
+        "security": [],
+        "description": "Process liveness only; does not query dependencies.",
+        "responses": {
+          "200": {
+            "description": "Process is serving",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readyz": {
+      "get": {
+        "operationId": "readiness",
+        "security": [],
+        "description": "Pings PostgreSQL with a one-second deadline. Does not check HIS readiness.",
+        "responses": {
+          "200": {
+            "description": "Database reachable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ready"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Database unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "unavailable"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "RegistrationKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Registration-Key",
+        "description": "Deployment provisioning key from generated .env; authorizes staff enrollment in configured hospitals."
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "HS256, issuer agnos, audience agnos-api, staff ID subject, required expiration."
+      }
+    },
+    "schemas": {
+      "Credentials": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password",
+          "hospital"
+        ],
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Trimmed then validated against ^[A-Za-z0-9._-]{3,64}$. Case-sensitive."
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "writeOnly": true,
+            "description": "8 to 72 UTF-8 bytes; not trimmed. Applies to create and login."
+          },
+          "hospital": {
+            "type": "string",
+            "description": "Trimmed code matching ^[A-Za-z0-9-]{1,64}$. Must exist; demo A or B. Unknown code is 400 on create, 401 on login.",
+            "example": "A"
+          }
+        }
+      },
+      "Staff": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "username"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "Token": {
+        "type": "object",
+        "required": [
+          "access_token",
+          "token_type",
+          "expires_in"
+        ],
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string",
+            "enum": [
+              "Bearer"
+            ]
+          },
+          "expires_in": {
+            "type": "integer",
+            "enum": [
+              3600
+            ],
+            "description": "Lifetime in seconds."
+          }
+        }
+      },
+      "Patient": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "patient_hn",
+          "first_name_th",
+          "middle_name_th",
+          "last_name_th",
+          "first_name_en",
+          "middle_name_en",
+          "last_name_en",
+          "date_of_birth",
+          "national_id",
+          "passport_id",
+          "phone_number",
+          "email",
+          "gender"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "patient_hn": {
+            "type": "string",
+            "description": "Hospital-local patient number; nonblank."
+          },
+          "first_name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "middle_name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "middle_name_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_of_birth": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "national_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "passport_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "M",
+              "F",
+              null
+            ]
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string",
+                "description": "Optional field context; currently not set by handlers."
+              }
+            }
+          }
+        }
+      },
+      "SearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "description": "All fields optional; null and explicitly blank strings rejected. Exact lowercase keys only; no duplicate keys. Filters combine with AND. String filters trimmed and limited to 1–255 UTF-8 bytes; identifiers additionally match ^[A-Za-z0-9-]{1,64}$.",
+        "properties": {
+          "national_id": {
+            "type": "string",
+            "description": "Exact match after trimming; case-sensitive. Triggers authoritative HIS lookup; national_id takes priority if both supplied."
+          },
+          "passport_id": {
+            "type": "string",
+            "description": "Exact match after trimming; case-sensitive. Triggers authoritative HIS lookup; national_id takes priority if both supplied."
+          },
+          "first_name": {
+            "type": "string",
+            "description": "Case-insensitive literal substring in the corresponding Thai OR English column; % and _ are literal."
+          },
+          "middle_name": {
+            "type": "string",
+            "description": "Case-insensitive literal substring in the corresponding Thai OR English column; % and _ are literal."
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Case-insensitive literal substring in the corresponding Thai OR English column; % and _ are literal."
+          },
+          "date_of_birth": {
+            "type": "string",
+            "description": "Real calendar date in YYYY-MM-DD format.",
+            "format": "date"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Exact match after trimming; case-sensitive."
+          },
+          "email": {
+            "type": "string",
+            "description": "Exact match after trimming; case-sensitive."
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000,
+            "default": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          }
+        }
+      },
+      "SearchResult": {
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "page_size",
+          "source"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Patient"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0,
+            "description": "Matching count before pagination; HIS lookup restricts to the fetched record."
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "local",
+              "his"
+            ],
+            "description": "Lookup path, not a guarantee of hospital-wide completeness."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+coverage.out
+coverage.html
+tmp/
+.DS_Store
+bin/
+output/qa/
+*.log
