@@ -70,8 +70,8 @@ Eight optional search fields are `national_id`, `passport_id`, `first_name`, `mi
 - [Development plan](docs/DEVELOPMENT_PLAN.md) — structure, decisions, flow, schema and test strategy.
 - [OpenAPI contract](docs/openapi.yaml) — exact request and response schema, authentication and errors (JSON syntax, valid YAML 1.2).
 - [Editable draw.io ERD](docs/diagrams/hospital-erd.drawio) and [SVG preview](docs/diagrams/hospital-erd.svg).
-- [Google Docs importable plan](output/agnos-development-plan.docx).
-- [Submission checklist](docs/SUBMISSION.md) — verification evidence and remaining destinations.
+- [Google Docs development plan](https://docs.google.com/document/d/1_UEMZg3q8FciP0s97UB8Zc5bWVGEFgtfui-ebygGcKo) and [downloadable DOCX](output/agnos-development-plan.docx).
+- [Submission checklist](docs/SUBMISSION.md) — verification evidence and delivery links.
 
 ## Configuration and limits
 

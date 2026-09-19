@@ -8,8 +8,8 @@
 - [x] Positive and negative API, service, adapter and database test cases.
 - [x] [Development plan](DEVELOPMENT_PLAN.md), [OpenAPI](openapi.yaml) and [editable draw.io ERD](diagrams/hospital-erd.drawio).
 - [x] Final verification results recorded below.
-- [ ] GitHub repository destination confirmed and uploaded.
-- [ ] Native Google Docs destination confirmed and planning DOCX imported.
+- [x] Private GitHub repository created and uploaded.
+- [x] Planning DOCX imported as native Google Docs in the ChatGPT folder.
 
 ## Reviewer demonstration
 
@@ -34,6 +34,8 @@ Verified on 19 September 2026 after the final dependency updates (pgx 5.9.2, qui
 | Native draw.io import | Verified tables, fields and relationship connectors in the real application; saved as Agnos Hospital ER Diagram.drawio in browser storage. The repository .drawio file is the distributable artifact. |
 | `govulncheck` v1.8.0 with Go 1.26 | Exit 0; zero vulnerabilities detected in called code. Two additional imported-package advisories and 24 additional module advisories concern code not called by this application. This does not mean every dependency is vulnerability-free. |
 | Planning DOCX | Title sanitizer passed; eight pages rendered with bundled LibreOffice and visually reviewed. |
+| Native Google Docs | MIME type and owner-only access verified; native text, tables and inline ERD read back. All eight pages of the Google Docs PDF export were visually reviewed without clipping, overflow or missing content. |
+| GitHub Actions | [Verification workflow](https://github.com/SaltzSnow/agnos-hospital-middleware/actions/workflows/ci.yml) passed Go vet, race-enabled tests with PostgreSQL, stack startup and smoke checks through Nginx. |
 
 To reproduce the coverage run after `make up`:
 
@@ -47,8 +49,8 @@ The ERD preview PNG is rasterized from the same generated SVG; it is not a nativ
 
 ## External handoff
 
-GitHub URL: pending destination confirmation.
+GitHub: [SaltzSnow/agnos-hospital-middleware](https://github.com/SaltzSnow/agnos-hospital-middleware) — private repository.
 
-Google Docs URL: pending native import of `output/agnos-development-plan.docx`.
+Google Docs: [Agnos Hospital Middleware Development Plan](https://docs.google.com/document/d/1_UEMZg3q8FciP0s97UB8Zc5bWVGEFgtfui-ebygGcKo) — native document in the ChatGPT folder, with owner-only access at handoff.
 
-The implemented HTTP adapter has been prepared against the assignment response shape and a mock, not verified against a real HIS. Real credentials, hospital B's actual schema, error formats and TLS requirements remain integration prerequisites. This package is ready for local review; no public deployment or submission email is implied.
+The implemented HTTP adapter has been prepared against the assignment response shape and a mock, not verified against a real HIS. Real credentials, hospital B's actual schema, error formats and TLS requirements remain integration prerequisites. Before sending the assignment links, grant the intended reviewers access to the private repository and Google Doc.
