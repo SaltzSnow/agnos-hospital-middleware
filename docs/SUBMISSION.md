@@ -8,7 +8,7 @@
 - [x] Positive and negative API, service, adapter and database test cases.
 - [x] [Development plan](DEVELOPMENT_PLAN.md), [OpenAPI](openapi.yaml) and [editable draw.io ERD](diagrams/hospital-erd.drawio).
 - [x] Final verification results recorded below.
-- [x] Private GitHub repository created and uploaded.
+- [x] GitHub repository uploaded and made public for reviewer access.
 - [x] Planning DOCX imported as native Google Docs in the ChatGPT folder.
 
 ## Reviewer demonstration
@@ -49,8 +49,8 @@ The ERD preview PNG is rasterized from the same generated SVG; it is not a nativ
 
 ## External handoff
 
-GitHub: [SaltzSnow/agnos-hospital-middleware](https://github.com/SaltzSnow/agnos-hospital-middleware) — private repository.
+GitHub: [SaltzSnow/agnos-hospital-middleware](https://github.com/SaltzSnow/agnos-hospital-middleware) — public repository.
 
 Google Docs: [Agnos Hospital Middleware Development Plan](https://docs.google.com/document/d/1_UEMZg3q8FciP0s97UB8Zc5bWVGEFgtfui-ebygGcKo) — native document in the ChatGPT folder, with owner-only access at handoff.
 
-The implemented HTTP adapter has been prepared against the assignment response shape and a mock, not verified against a real HIS. Real credentials, hospital B's actual schema, error formats and TLS requirements remain integration prerequisites. Before sending the assignment links, grant the intended reviewers access to the private repository and Google Doc.
+The implemented HTTP adapter has been prepared against the assignment response shape and a mock, not verified against a real HIS. Real credentials, hospital B's actual schema, error formats and TLS requirements remain integration prerequisites. The repository is publicly accessible. Before sending the assignment links, grant the intended reviewers access to the Google Doc.
